@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "list#index"
+  root "lists#index"
 
   resources :lists do
     resources :bookmarks, only: %i[new create]
