@@ -9,4 +9,9 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/show";
 @import "pages/index";
+
+body {
+  background-color: rgb(230, 230, 230);
+}

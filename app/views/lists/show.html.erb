@@ -1,3 +1,7 @@
+<% if @list.photo.attached? %>
+  <%= cl_image_tag @list.photo.key, class: "custom-image" %>
+<% end %>
+
 <h1><%= @list.name %></h1>
 
 <div class="container">

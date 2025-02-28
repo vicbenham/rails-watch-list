@@ -1,11 +1,27 @@
-<h1>Index</h1>
+<img src="https://eloutput.com/wp-content/uploads/2022/06/sala-cine.jpg" class="custom-image" alt="photo">
 
-<div class="container">
-  <% @lists.each do |list| %>
-    <div>
-      <%= link_to list.name, list_path(list) %>
+<div class="container mt-3">
+  <div class="d-flex justify-content-between align-items-center my-5 border-dark">
+    <h1>My lists</h1>
+    <%= link_to "Add a list", new_list_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="row gy-3 justify-content-center">
+    <% @lists.each do |list| %>
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="card mb-3" style="width: 18rem;">
+        <% if list.photo.attached? %>
+          <%= cl_image_tag list.photo.key, class: "card-img-top custom-card-img" %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= list.name %></h5>
+          <div class="d-flex justify-content-between">
+            <%= link_to 'Go', list_path(list), class: "btn btn-primary" %>
+            <%= link_to 'Edit', edit_list_path(list), class: "btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <%= link_to "Add a list", new_list_path %>
+    <% end %>
+  </div>
 </div>
